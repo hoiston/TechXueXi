@@ -17,11 +17,11 @@
 
 ### 20210703更新内容
 * 合并最新的0630主分支答题部分修改
-* 支持arm架构docker
+* 支持arm架构docker（自动根据运行环境的arch判断拉取）
     * 目前通过QEMU构建基于arm64v8与arm32v7的镜像
-    * 因无arm环境未进行测试验证，有问题可以提issue反馈，请@wx5223
+    * 因无arm环境未进行测试验证，有问题可以提issue反馈（最好有报错的日志），请@wx5223
+    * arm32v5的镜像目前还有较多的依赖包等问题（如上述镜像可以正常使用后期看需求再考虑）
 * 增加部分答题异常处理，避免部分无限循环的问题
-
 
 
 ![](https://raw.githubusercontent.com/wx5223/TechXueXi/headless-single-docker/img_folder/dingding2.jpg)
@@ -48,6 +48,14 @@ docker logs xuexi
 docker rm xuexi
 ```
 
+#### 额外：
+* 20210704：TechXueXi主库好像已被迁移，原issue等信息已经丢失，目前好像不能pull request。暂未同步至主库。
+```
+# 版本更新步骤：v20210616_headless -> v20210703
+docker rm xuexi
+# 重新执行步骤1，注意命令中的版本号v20210703
+```
+---
 ---
 **[在线聊天室地址及说明](https://github.com/TechXueXi/TechXueXi/issues/14)**
 
