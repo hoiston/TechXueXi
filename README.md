@@ -10,9 +10,18 @@
 ### 20210616更新内容
 * 解决钉钉二维码图片不显示的问题，补充输出二维码图片识别url。
     * based on https://github.com/TechXueXi/TechXueXi/issues/108 (thanks to mudapi)
+    * **链接复制后打开学习APP，发送给自己，点击链接即可登录**
 * 加入登录自动超时重试（重试2次）
 * 加入超时退出（针对部分答题问题导致程序挂起）
 * 去除docker容器配置文件，简化使用（现在只需要一条命令即可）
+
+### 20210703更新内容
+* 合并最新的0630主分支答题部分修改
+* 支持arm架构docker
+    * 目前通过QEMU构建基于arm64v8与arm32v7的镜像
+    * 因无arm环境未进行测试验证，有问题可以提issue反馈，请@wx5223
+* 增加部分答题异常处理，避免部分无限循环的问题
+
 
 
 ![](https://raw.githubusercontent.com/wx5223/TechXueXi/headless-single-docker/img_folder/dingding2.jpg)
@@ -26,7 +35,7 @@
 使用方法：
 ```
 # 步骤1 创建并运行容器（首次运行，仅运行一次，除非删除容器）
-docker run -d --name xuexi wx5223/xuexi:v20210616_headless python pandalearning.py 替换为自己的token 替换为自己的secret
+docker run -d --name xuexi wx5223/xuexi:v20210703 python pandalearning.py 替换为自己的token 替换为自己的secret
 
 # 启动容器（每天运行）
 docker start xuexi
@@ -38,6 +47,7 @@ docker logs xuexi
 # 删除容器（可以重新执行步骤1 创建容器）
 docker rm xuexi
 ```
+
 ---
 **[在线聊天室地址及说明](https://github.com/TechXueXi/TechXueXi/issues/14)**
 

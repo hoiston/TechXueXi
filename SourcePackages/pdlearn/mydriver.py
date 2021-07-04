@@ -77,6 +77,8 @@ class Mydriver:
             elif os.path.exists("/usr/local/bin/chromedriver"):  # linux 包安装chromedriver
                 self.driver = self.webdriver.Chrome(executable_path="/usr/local/bin/chromedriver",
                                                     chrome_options=self.options)
+            elif os.path.exists("/usr/bin/chromedriver"):  # installed chromedriver
+                self.driver = self.webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=self.options)
             else:
                 self.driver = self.webdriver.Chrome(executable_path="./chrome/chromedriver.exe",chrome_options=self.options)
         except:

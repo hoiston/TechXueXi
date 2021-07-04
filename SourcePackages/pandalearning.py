@@ -24,17 +24,23 @@ def get_argv():
     return token, secret
 
 
-@timeout(1800, 'timeout')
+@timeout(1200, 'timeout')
 def answer_question(cookies, scores):
-    TechXueXi_mode = "3"
-    if TechXueXi_mode in ["2", "3"]:
-        print('开始每日答题……')
+    print('开始每日答题……')
+    try:
         daily(cookies, scores)
-    if TechXueXi_mode in ["3"]:
-        print('开始每周答题……')
+    except Exception as e:
+        print(color.red("每日答题异常：" + str(e)))
+    print('开始每周答题……')
+    try:
         weekly(cookies, scores)
-        print('开始专项答题……')
+    except Exception as e:
+        print(color.red("每周答题异常：" + str(e)))
+    print('开始专项答题……')
+    try:
         zhuanxiang(cookies, scores)
+    except Exception as e:
+        print(color.red("专项答题异常：" + str(e)))
 
 
 if __name__ == '__main__':
