@@ -23,6 +23,10 @@
     * arm32v5的镜像目前还有较多的依赖包等问题（如上述镜像可以正常使用后期看需求再考虑）
 * 增加部分答题异常处理，避免部分无限循环的问题
 
+### 20211016更新内容
+* 修复score报错问题
+    * based on [瓦西里](https://github.com/TechXueXi/TechXueXi/commit/c06d2264db78fa65ce073031ad9393ff85fe9f85#diff-0fbfab729332b8b62a5ea78c8d27958406dea7aa87ffae7fc9d4e09f1a5a05ad)
+* 仅个人使用，其他用户建议参考: https://github.com/TechXueXi/TechXueXi/blob/dev/DOCKER.md
 
 ![](https://raw.githubusercontent.com/wx5223/TechXueXi/headless-single-docker/img_folder/dingding2.jpg)
 
@@ -35,7 +39,7 @@
 使用方法：
 ```
 # 步骤1 创建并运行容器（首次运行，仅运行一次，除非删除容器）
-docker run -d --name xuexi wx5223/xuexi:v20210703 python pandalearning.py 替换为自己的token 替换为自己的secret
+docker run -d --name xuexi wx5223/xuexi:v20211016 python pandalearning.py 替换为自己的token 替换为自己的secret
 
 # 启动容器（每天运行）
 docker start xuexi
